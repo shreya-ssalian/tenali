@@ -30,7 +30,7 @@ Tenali has a React client and an Express server.
 - **`client/src/App.jsx` is a 70,900-line file.** Almost every feature touches it, so PRs conflict often. CONTRIBUTING says testing the whole file is out of scope, so most of the app has no tests.
 - **`server/index.js` is 3,160 lines** even though routes are split into 19 modules, so it still holds a lot of logic that is hard to review and test.
 - **`/concept-api` looks like an orphan.** It is mounted at `server/index.js:626`, but nothing in `client/src` calls it. This is unused code that still has to be maintained and secured.
-- **The Vachana lab's "Back to Home" blanks the whole page.** I saw this in the browser: after clicking it, the page goes white and the address stays `/vachana`. The button is in `client/src/vachana/index.jsx` (around line 272) and calls `onBack`, which `App.jsx` provides. A student can get stuck in the lab.
+- **The Vachana lab's "Back to Home" blanks the whole page.** I saw this in the browser: after clicking it, the page goes blank (an empty dark page) and the address stays `/vachana`. The button is in `client/src/vachana/index.jsx` (around line 272) and calls `onBack`, which `App.jsx` provides. A student can get stuck in the lab.
 - **The Mensuration Lab screen is headed "Mensuration"** even though its tile is named "Mensuration Lab". `MensurationLabApp` in `client/src/App.jsx` (around line 70890) sets `title="Mensuration"`, so it looks the same as the quiz.
 
 ## 5. Ideas for the project
