@@ -22,7 +22,7 @@ Tenali has a React client and an Express server.
 - The server has 11 test files. The client got its test runner (Vitest) recently. Vitest runs 2 test files; 5 more files in `client/src/monsters/__tests__` are plain Node scripts that Vitest skips (see `client/vitest.config.js`).
 - The big client file, `client/src/App.jsx` (about 70,900 lines), is being broken up. The `client/src/apps/` folder was created and the first component was extracted (#235).
 - Browser history now works for mode changes (#245).
-- Client lint had over 1,000 errors when issue #274 was written, and cleanup PRs are still landing, so the lint check is not blocking yet.
+- Client lint had over 1,000 errors when issue #277 was written, and cleanup PRs are still landing, so the lint check is not blocking yet.
 - **Tech stack and deployment:** the client is React with Vite, the server is Express on Node, data is in MongoDB through Mongoose, and the Battle Arena uses Socket.IO. In production, one Node process serves the built React app, the puzzle APIs, auth, Socket.IO and the code playground (`render.yaml` builds the client with `npm run build` and starts `node server/index.js`). `render.yaml` also points its health check at `/api/health`, but the server does not serve that route yet; PR #478 is open to add it. On `tenali.fun`, nginx fronts three apps: `/` (the `tenali-root` branch), `/summership/` (this repo's `main`) and `/fln/` (a different repo). A PR merged to `main` goes live at `tenali.fun/summership/`.
 
 ## 4. Gaps observed in the code
